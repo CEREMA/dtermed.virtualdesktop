@@ -1,0 +1,127 @@
+<html>
+	<head>
+		<link rel=stylesheet type=text/css href="web/css/startup.css"></link>
+		<link rel=stylesheet type=text/css href="web/css/gridster.css"></link>
+		<script src="web/js/jquery.js"></script>
+		<script src="web/js/gridster.js"></script>
+		<script src="web/js/blur.js"></script>
+		<script src="web/js/date.js"></script>
+		<script src="web/js/date_fr.js"></script>
+	</head>
+	<body>
+		<div class="wallpaper" style="display:none"></div>
+		<div class="shortcuts" style="display:none"></div>
+		<div class="startup">
+			<div class="Date">...</div>
+			<div class="logo_cerema"></div>
+			<div class="ids">
+			<table width=100%>
+				<tr>
+					<td width=50%></td>
+					<td width=128 align=center>
+						<div class="identity"></div>
+					</td>
+					<td width=50>&nbsp;&nbsp;&nbsp;</td>
+					<!--td width=128 align=center>
+						<div class="identity"></div>
+					</td>
+					<td width=50>&nbsp;&nbsp;&nbsp;</td>
+					<td width=128 align=center>
+						<div class="identity"></div>
+					</td>
+					<td width=50>&nbsp;&nbsp;&nbsp;</td>
+					<td width=128 align=center>
+						<div class="identity"></div>
+					</td-->
+					<td width=50%></td>
+				</tr>
+				<tr>
+					<td width=50%></td>
+					<td width=128 align=center>
+						<div class="user">Login</div>
+					</td>
+					<td width=50>&nbsp;&nbsp;&nbsp;</td>
+					<!--td width=128 align=center>
+						<div class="user">yyy</div>
+					</td>
+					<td width=50>&nbsp;&nbsp;&nbsp;</td>
+					<td width=128 align=center>
+						<div class="user">yyy</div>
+					</td>
+					<td width=50>&nbsp;&nbsp;&nbsp;</td>
+					<td width=128 align=center>
+						<div class="user">yyy</div>
+					</td-->
+					<td width=50%></td>				
+				</tr>
+			</table>
+			</div>
+		</div>
+		<div class="gridster" style="display:none">
+			<ul>
+				<li data-row="1" data-col="1" data-sizex="1" data-sizey="1"><div class="app"></div></li>
+				<li data-row="2" data-col="1" data-sizex="1" data-sizey="1"></li>
+				<li data-row="3" data-col="1" data-sizex="1" data-sizey="1"></li>
+
+				<li data-row="1" data-col="2" data-sizex="2" data-sizey="1"></li>
+				<li data-row="2" data-col="2" data-sizex="2" data-sizey="2"></li>
+
+				<li data-row="1" data-col="4" data-sizex="1" data-sizey="1"></li>
+				<li data-row="2" data-col="4" data-sizex="2" data-sizey="1"></li>
+				<li data-row="3" data-col="4" data-sizex="1" data-sizey="1"></li>
+
+				<li data-row="1" data-col="5" data-sizex="1" data-sizey="1"></li>
+				<li data-row="3" data-col="5" data-sizex="1" data-sizey="1"></li>
+
+				<li data-row="1" data-col="6" data-sizex="1" data-sizey="1"></li>
+				<li data-row="2" data-col="6" data-sizex="1" data-sizey="2"></li>
+			</ul>
+		</div>		
+		<script>		
+		var d=new Date();
+		$('.Date').html(d.toString("HH:mm:ss")+"<br>"+d.toString("dddd dd MMMM yyyy"));			
+		window.setInterval(function() {
+			var d=new Date();
+			$('.Date').html(d.toString("HH:mm:ss")+"<br>"+d.toString("dddd dd MMMM yyyy"));
+		},1000);		
+		var vague=$('.wallpaper').Vague({
+			intensity:      10,      // Blur Intensity
+			forceSVGUrl:    false,   // Force absolute path to the SVG filter,
+			// default animation options
+			animationOptions: {
+				duration: 5000,
+				easing: 'linear' // here you can use also custom jQuery easing functions
+			}
+		});
+		/*vague.blur();
+		var gridster = $(".gridster > ul").gridster({
+			widget_margins: [10, 10],
+			widget_base_dimensions: [140, 140],
+			min_cols: 4,
+			resize: {
+				enabled: false
+			}
+		}).data('gridster');
+		*/
+
+		/*var collection = [
+			['<li><div class="title">drag</div>Widget content</li>', 1, 2],
+			['<li><div class="title">drag</div>Widget content</li>', 5, 2],
+			['<li><div class="title">drag</div>Widget content</li>', 3, 2],
+			['<li><div class="title">drag</div>Widget content</li>', 2, 1],
+			['<li><div class="title">drag</div>Widget content</li>', 4, 1],
+			['<li><div class="title">drag</div>Widget content</li>', 1, 2],
+			['<li><div class="title">drag</div>Widget content</li>', 2, 1],
+			['<li><div class="title">drag</div>Widget content</li>', 3, 2],
+			['<li><div class="title">drag</div>Widget content</li>', 1, 1],
+			['<li><div class="title">drag</div>Widget content</li>', 2, 2],
+			['<li><div class="title">drag</div>Widget content</li>', 1, 3],
+		];
+	
+		$.each(collection, function(i, widget){
+			gridster.add_widget.apply(gridster, widget)
+		});*/
+		
+		</script>
+	</body>
+</html>
