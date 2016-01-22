@@ -1,7 +1,9 @@
 <html>
-	<head>
-		<link rel=stylesheet type=text/css href="web/css/startup.css"></link>
+	<head>		
 		<link rel=stylesheet type=text/css href="web/css/gridster.css"></link>
+		<link rel=stylesheet type=text/css href="web/css/animate.css"></link>
+		<link rel=stylesheet type=text/css href="web/css/hover.css"></link>
+		<link rel=stylesheet type=text/css href="web/css/startup.css"></link>
 		<script src="web/js/jquery.js"></script>
 		<script src="web/js/gridster.js"></script>
 		<script src="web/js/blur.js"></script>
@@ -9,6 +11,7 @@
 		<script src="web/js/date_fr.js"></script>
 	</head>
 	<body>
+		<div class="modal"></div>
 		<div class="wallpaper" style="display:none"></div>
 		<div class="shortcuts" style="display:none"></div>
 		<div class="startup">
@@ -19,7 +22,7 @@
 				<tr>
 					<td width=50%></td>
 					<td width=128 align=center>
-						<div class="identity"></div>
+						<div class="identity hvr-pulse-grow"></div>
 					</td>
 					<td width=50>&nbsp;&nbsp;&nbsp;</td>
 					<!--td width=128 align=center>
@@ -84,16 +87,22 @@
 			var d=new Date();
 			$('.Date').html(d.toString("HH:mm:ss")+"<br>"+d.toString("dddd dd MMMM yyyy"));
 		},1000);		
-		var vague=$('.wallpaper').Vague({
-			intensity:      10,      // Blur Intensity
-			forceSVGUrl:    false,   // Force absolute path to the SVG filter,
-			// default animation options
-			animationOptions: {
-				duration: 5000,
-				easing: 'linear' // here you can use also custom jQuery easing functions
-			}
+		$(".identity").click(function() {
+			$('.modal').show();
+			$(this).addClass('bounce animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+				$(this).removeClass('bounce animated');
+				var vague=$('.startup').Vague({
+					intensity: 10,
+					forceSVGUrl: false,
+					animationOptions: {
+						duration: 5000,
+						easing: 'linear'
+					}
+				});
+				vague.blur();
+			});		
 		});
-		/*vague.blur();
+/*
 		var gridster = $(".gridster > ul").gridster({
 			widget_margins: [10, 10],
 			widget_base_dimensions: [140, 140],
@@ -102,7 +111,7 @@
 				enabled: false
 			}
 		}).data('gridster');
-		*/
+*/
 
 		/*var collection = [
 			['<li><div class="title">drag</div>Widget content</li>', 1, 2],
